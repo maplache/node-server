@@ -2,6 +2,9 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+//Puerto que Heroku decide usar
+const port = process.env.PORT || 3000;
+
 //Declarar objeto
 var app = express();
 
@@ -83,4 +86,6 @@ app.get('/bad', (req, res) => {
 });
 
 //Inicializar
-app.listen(3000);
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
